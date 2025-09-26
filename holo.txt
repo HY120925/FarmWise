@@ -1,0 +1,48 @@
+smart_agri_advisor/
+│
+├── main.py                 # Entry point to run the project
+│
+├── data/                   # Raw and processed datasets
+│   ├── raw/                # Original datasets (CSV, JSON)
+│   └── processed/          # Cleaned/prepared datasets
+│
+├── notebooks/              # Jupyter notebooks for experiments
+│   ├── data_preprocessing.ipynb
+│   └── model_training.ipynb
+│
+├── models/                 # Saved ML models
+│   ├── crop_recommendation.pkl
+│   └── yield_prediction.pkl
+│
+├── src/                    # Source code
+│   ├── ingestion.py        # Data loading & preprocessing
+│   ├── train_classification.py   # Crop recommendation model
+│   ├── train_regression.py       # Yield prediction model
+│   ├── evaluate.py         # Metrics & evaluation
+│   └── utils.py            # Helper functions
+│
+├── api/       # Backend API (for Milestone 2)
+│   ├── app.py       # Flask/Django entry
+│   ├── routes.py    # API routes
+│   └── services.py  # Model integration
+│
+├── frontend/        # React app goes here
+    ├── package.json
+    ├── public/
+    └── src/
+        ├── App.jsx
+        ├── index.css
+        ├── main.jsx
+        ├── components/
+        │   ├── Header.jsx
+        │   ├── Hero.jsx
+        │   ├── AdvisoryForm.jsx
+        │   ├── Footer.jsx
+        │   └── About.jsx
+├── tests/           # Smoke tests & unit tests
+│   ├── test_models.py
+│   └── test_api.py
+│
+├── settings.json    # Config (paths, parameters)
+├── requirements.txt # Dependencies
+└── README.md        # Documentation

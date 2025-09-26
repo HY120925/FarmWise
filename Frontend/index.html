@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Farm Wise Advisor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<script>
+  let lastScrollTop = 0;
+  const header = document.querySelector(".header");
+
+  window.addEventListener("scroll", function () {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > lastScrollTop) {
+      // scrolling down → hide
+      header.classList.add("hidden");
+    } else {
+      // scrolling up → show
+      header.classList.remove("hidden");
+    }
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // avoid negative
+  });
+</script>
+
+<body class="dark">
+  <!-- 🌾 Background Video -->
+  <video autoplay muted loop id="bg-video">
+    <source src="farm.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  <div id="overlay"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo-dot"></span>
+        <span class="brand-name">Farm Wise</span>
+        <span class="brand-tagline">Connecting Farmers to Knowledge and Services</span>
+      </div>
+      <nav class="nav">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#advisory" class="nav-link">Get Advisory</a>
+        <a href="#about" class="nav-link">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-left">
+        <h1 class="hero-title">Neutral, farmer-first advisory</h1>
+        <p class="hero-text">
+          A simple way to access crop guidance tailored to region and soil conditions.
+        </p>
+        <a href="#advisory" class="btn btn-primary">Get Advisory</a>
+      </div>
+      <div class="hero-right">
+        <div class="hero-card">
+          <h3>Farm Wise</h3>
+          <p>Scalable, accessible, and aligned with government schemes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Advisory -->
+  <section id="advisory" class="section section-dark">
+    <div class="container">
+      <h2 class="section-title">Get Advisory</h2>
+      <p class="section-subtitle">
+        Choose soil type and region to get quick best-practice tips.
+      </p>
+      <div class="card">
+        <form id="advisor-form" class="form">
+          <div class="form-row">
+            <label for="soil">Soil type</label>
+            <select id="soil" name="soil_type" required>
+              <option value="">Select soil type</option>
+              <option value="Sandy">Sandy</option>
+              <option value="Clay">Clay</option>
+              <option value="Loam">Loam</option>
+              <option value="Silt">Silt</option>
+              <option value="Peaty">Peaty</option>
+              <option value="Chalky">Chalky</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="region">Region</label>
+            <select id="region" name="region" required>
+              <option value="">Select region</option>
+              <option value="North">North</option>
+              <option value="South">South</option>
+              <option value="East">East</option>
+              <option value="West">West</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Get Advisory</button>
+        </form>
+        <div id="result" class="result"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section section-dark">
+    <div class="container">
+      <h2 class="section-title">About</h2>
+      <p>
+        Farm Wise empowers small-scale farmers with timely, expert crop advice
+        tailored to local conditions, sustained through government schemes.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <p>© 2025 Farm Wise</p>
+        <p>Hackathon - NexHack 1.0</p>
+      </div>
+      <a href="#about" class="footer-link">About</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
