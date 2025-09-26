@@ -1,13 +1,7 @@
-# ============================
-# 🌱 FarmWise Services
-# ============================
 
 import joblib
 import pandas as pd
 
-# ============================
-# 📂 Load models & encoders
-# ============================
 try:
     crop_model = joblib.load("../models/crop_model.pkl")
     crop_encoder = joblib.load("../models/crop_encoder.pkl")
@@ -24,9 +18,6 @@ except Exception as e:
     crop_encoder = encoders = required_features = None
 
 
-# ============================
-# 🔄 Preprocess Input
-# ============================
 def preprocess_input(input_dict: dict):
     if required_features is None:
         raise ValueError("❌ No feature list found (features.pkl missing)")
@@ -42,9 +33,6 @@ def preprocess_input(input_dict: dict):
     return df
 
 
-# ============================
-# 🌾 Prediction Functions
-# ============================
 def recommend_crop(input_data: dict):
     df = preprocess_input(input_data)
     pred = crop_model.predict(df)
@@ -73,9 +61,6 @@ def predict_resources(input_data: dict):
     return resources
 
 
-# ============================
-# 📝 Main Advisory
-# ============================
 def generate_advisory(input_data: dict):
     crop = recommend_crop(input_data)
     yield_val = predict_yield(input_data)
