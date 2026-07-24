@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Farm Wise Advisor</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="dark">
+
+  <video autoplay muted loop id="bg-video">
+    <source src="{{ url_for('static', filename='farm.mp4') }}" type="video/mp4" />
+  </video>
+  <div id="overlay"></div>
+
+  <header class="header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo-dot"></span>
+        <span class="brand-name">Farm Wise</span>
+        <span class="brand-tagline">Connecting Farmers to Knowledge and Services</span>
+      </div>
+      <nav class="nav">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#advisory" class="nav-link">Get Advisory</a>
+        <a href="#about" class="nav-link">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-left">
+        <h1 class="hero-title">Neutral, farmer-first advisory</h1>
+        <p class="hero-text">
+          A simple way to access crop guidance tailored to soil and weather conditions.
+        </p>
+        <a href="#advisory" class="btn btn-primary">Get Advisory</a>
+      </div>
+      <div class="hero-right">
+        <div class="hero-card">
+          <h3>Farm Wise</h3>
+          <p>AI-powered crop recommendations using real data.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="advisory" class="section section-dark">
+    <div class="container">
+      <h2 class="section-title">Get Advisory</h2>
+      <p class="section-subtitle">
+        Enter your soil and weather details to get smart crop recommendations.
+      </p>
+
+      <div class="card">
+
+        <form id="advisor-form" class="form">
+
+          <div class="form-row">
+            <label>Nitrogen (N)</label>
+            <input type="number" id="n" required>
+          </div>
+
+          <div class="form-row">
+            <label>Phosphorus (P)</label>
+            <input type="number" id="p" required>
+          </div>
+
+          <div class="form-row">
+            <label>Potassium (K)</label>
+            <input type="number" id="k" required>
+          </div>
+
+          <div class="form-row">
+            <label>Temperature (°C)</label>
+            <input type="number" id="temperature" required>
+          </div>
+
+          <div class="form-row">
+            <label>Humidity (%)</label>
+            <input type="number" id="humidity" required>
+          </div>
+
+          <div class="form-row">
+            <label>pH Value</label>
+            <input type="number" id="ph" step="any" required>
+          </div>
+
+          <div class="form-row">
+            <label>Rainfall (mm)</label>
+            <input type="number" id="rainfall" required>
+          </div>
+
+          <div class="form-row">
+            <label>Area (hectares)</label>
+            <input type="number" id="area" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Get Advisory</button>
+
+        </form>
+
+        <div id="result" class="result"></div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section section-dark">
+    <div class="container">
+      <h2 class="section-title">About</h2>
+      <p>
+        Farm Wise empowers farmers with AI-based crop recommendations using soil and climate data.
+      </p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <p>© 2025 Farm Wise</p>
+        <p>Hackathon Project</p>
+      </div>
+      <a href="#about" class="footer-link">About</a>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+  <script>
+    window.addEventListener("scroll", function () {
+      const header = document.querySelector(".header");
+      let scrollTop = window.pageYOffset;
+
+      if (scrollTop > 50) {
+        header.classList.add("hidden");
+      } else {
+        header.classList.remove("hidden");
+      }
+    });
+
+  </script>
+</body>
+</html>

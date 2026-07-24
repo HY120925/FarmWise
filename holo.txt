@@ -1,0 +1,20 @@
+FarmWise/
+│
+├── data/
+│   ├── raw/
+│   ├── processed/
+│
+├── models/
+│
+├── src/
+│   ├── preprocessing.py
+│   ├── train_crop.py
+│   ├── train_yield.py
+│   ├── predict.py
+│
+├── api/
+│   └── app.py
+│
+├── notebooks/
+│
+├── README.md
